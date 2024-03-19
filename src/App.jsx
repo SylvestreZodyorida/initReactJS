@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+const title = 'Bonjour les gens, ici zoddy!'
+const style = {color: 'red', }
+const showTitle = true
+const todos = [ 
+  "premier élément",
+  "second élément",
+  "dernier élément",
+]
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const handleClick = () => {
+    alert("j'ai cliqué sur le titre! ✅")
+  }
+
+  return <>
+  
+    {/* {
+      showTitle ? <h1 onClick={handleClick} style={style}>{title}</h1> :
+                  <p>False</p> 
+    } */}
+
+    <TitleFunc color="green"> Rebonjour , ici zodyy</TitleFunc>
+    <p className="ThirstP">Lorem ipsum, dolor sit amet consectetur adipisicing elit.Consectetur, soluta?</p> 
+  
+    <ul>
+      {
+        todos.map((todo) => (
+          <li key={todo}>{todo}</li>
+        ))
+      }
+    </ul>
+  </>
+   
+}
+
+function TitleFunc({color, children}) {
+    return <h1 style={{color : color}}> {children} </h1>
 }
 
 export default App
